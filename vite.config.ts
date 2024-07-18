@@ -1,11 +1,16 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import path, { resolve } from "path";
 import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   base: "/js/framework/", // Base URL for serving assets
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   build: {
     rollupOptions: {
       input: {
